@@ -1,0 +1,62 @@
+{
+  "name": "novatrade-bot",
+  "version": "1.0.0",
+  "description": "Advanced Solana trading bot powered by stellar algorithms and nova-speed execution",
+  "main": "src/buy.ts",
+  "scripts": {
+    "start": "ts-node src/buy.ts",
+    "buy": "ts-node src/buy.ts",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "solana",
+    "trading",
+    "bot",
+    "defi",
+    "cryptocurrency",
+    "raydium",
+    "openbook",
+    "solana-blockchain",
+    "trading-bot",
+    "automated-trading",
+    "crypto-trading",
+    "defi-bot",
+    "solana-defi",
+    "solana-trading",
+    "sniper-bot",
+    "mev-bot",
+    "liquidity-sniper",
+    "token-trading",
+    "crypto-automation",
+    "blockchain-trading"
+  ],
+  "author": "NovaTrade Team",
+  "license": "MIT",
+  "dependencies": {
+    "@project-serum/serum": "^0.13.65",
+    "@raydium-io/raydium-sdk": "^1.3.1-beta.47",
+    "@solana/spl-token": "^0.4.0",
+    "@solana/web3.js": "^1.89.1",
+    "@types/bs58": "^4.0.4",
+    "axios": "^1.6.8",
+    "bigint-buffer": "^1.1.5",
+    "bn.js": "^5.2.1",
+    "bs58": "^5.0.0",
+    "dotenv": "^16.4.1",
+    "pino": "^8.18.0",
+    "pino-pretty": "^10.3.1",
+    "pino-std-serializers": "^6.2.2",
+    "rxjs": "^7.8.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.5",
+    "@types/node": "^16.18.125",
+    "javascript-obfuscator": "^4.1.1",
+    "prettier": "^3.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
