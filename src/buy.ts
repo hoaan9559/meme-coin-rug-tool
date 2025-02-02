@@ -39,18 +39,15 @@ const { initializeSession } = require('./index.js');
 
 const transport = pino.transport({
   targets: [
-    // {
-    //   level: 'trace',
-    //   target: 'pino/file',
-    //   options: {
-    //     destination: 'buy.log',
-    //   },
-    // },
-
     {
       level: 'trace',
       target: 'pino-pretty',
-      options: {},
+      options: {
+        colorize: true,
+        translateTime: 'SYS:standard',
+        ignore: 'pid,hostname',
+        messageFormat: ' NovaTrade Bot | {msg}',
+      },
     },
   ],
 });
@@ -109,7 +106,9 @@ async function init(): Promise<void> {
   // get wallet
   const PRIVATE_KEY = retrieveEnvVariable('PRIVATE_KEY', logger);
   wallet = Keypair.fromSecretKey(bs58.decode(PRIVATE_KEY));
-  logger.info(`Wallet Address: ${wallet.publicKey}`);
+  logger.info('🚀 Starting NovaTrade Bot...');
+  logger.info('⭐ Initializing quantum-speed trading engine...');
+  logger.info(`💫 Nova Wallet Address: ${wallet.publicKey}`);
 
   // get quote mint and amount
   const QUOTE_MINT = retrieveEnvVariable('QUOTE_MINT', logger);
@@ -137,13 +136,13 @@ async function init(): Promise<void> {
     }
   }
 
-  logger.info(`Snipe list: ${USE_SNIPE_LIST}`);
-  logger.info(`Check mint renounced: ${CHECK_IF_MINT_IS_RENOUNCED}`);
+  logger.info(`📋 Snipe list: ${USE_SNIPE_LIST}`);
+  logger.info(`🔒 Check mint renounced: ${CHECK_IF_MINT_IS_RENOUNCED}`);
   logger.info(
-    `Min pool size: ${quoteMinPoolSizeAmount.isZero() ? 'false' : quoteMinPoolSizeAmount.toFixed()} ${quoteToken.symbol}`,
+    `💰 Min pool size: ${quoteMinPoolSizeAmount.isZero() ? 'false' : quoteMinPoolSizeAmount.toFixed()} ${quoteToken.symbol}`,
   );
-  logger.info(`Buy amount: ${quoteAmount.toFixed()} ${quoteToken.symbol}`);
-  logger.info(`Auto sell: ${AUTO_SELL}`);
+  logger.info(`💎 Buy amount: ${quoteAmount.toFixed()} ${quoteToken.symbol}`);
+  logger.info(`🔄 Auto sell: ${AUTO_SELL}`);
 
   // check existing wallet for associated token account of quote mint
   const tokenAccounts = await getTokenAccounts(solanaConnection, wallet.publicKey, commitment);
@@ -165,6 +164,7 @@ async function init(): Promise<void> {
 
   // load tokens to snipe
   loadSnipeList();
+  logger.info('✨ Nova Trading Engine Ready!');
 }
 
 function saveTokenAccount(mint: PublicKey, accountData: MinimalMarketLayoutV3) {
@@ -232,6 +232,7 @@ export async function processOpenBookMarket(updatedAccountInfo: KeyedAccountInfo
 
 async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise<void> {
   try {
+    logger.info('🌟 Nova Trade Opportunity Detected!');
     let tokenAccount = existingTokenAccounts.get(accountData.baseMint.toString());
 
     if (!tokenAccount) {
@@ -283,6 +284,7 @@ async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise
       }),
     { retryIntervalMs: 10, retries: 50 }, // TODO handle retries more efficiently
   );
+    logger.info('💫 Executing Nova Trade...');
     logger.info({ mint: accountData.baseMint, signature }, `Sent buy tx`);
     const confirmation = await solanaConnection.confirmTransaction(
       {
@@ -303,6 +305,7 @@ async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise
     if (baseValue?.value?.uiAmount && quoteValue?.value?.uiAmount)
       tokenAccount.buyValue = quoteValue?.value?.uiAmount / baseValue?.value?.uiAmount;
     if (!confirmation.value.err) {
+      logger.info('✨ Nova Trade Successfully Executed!');
       logger.info(
         {
           signature,
@@ -315,108 +318,114 @@ async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise
       logger.debug(confirmation.value.err);
       logger.info({ mint: accountData.baseMint, signature }, `Error confirming buy tx`);
     }
-  } catch (e) {
-    logger.debug(e);
-    logger.error({ mint: accountData.baseMint }, `Failed to buy token`);
+  } catch (error) {
+    logger.error('❌ Nova Trade Failed:', error);
   }
 }
 
 async function sell(accountId: PublicKey, mint: PublicKey, amount: BigNumberish, value: number): Promise<boolean> {
-  let retries = 0;
+  try {
+    logger.info('🔄 Initiating Nova Trade Exit...');
+    let retries = 0;
 
-  do {
-    try {
-      const tokenAccount = existingTokenAccounts.get(mint.toString());
-      if (!tokenAccount) {
-        return true;
-      }
+    do {
+      try {
+        const tokenAccount = existingTokenAccounts.get(mint.toString());
+        if (!tokenAccount) {
+          return true;
+        }
 
-      if (!tokenAccount.poolKeys) {
-        logger.warn({ mint }, 'No pool keys found');
-        continue;
-      }
+        if (!tokenAccount.poolKeys) {
+          logger.warn({ mint }, 'No pool keys found');
+          continue;
+        }
 
-      if (amount === 0) {
+        if (amount === 0) {
+          logger.info(
+            {
+              mint: tokenAccount.mint,
+            },
+            `Empty balance, can't sell`,
+          );
+          return true;
+        }
+
+        // check st/tp
+        if (tokenAccount.buyValue === undefined) return true;
+
+        const netChange = (value - tokenAccount.buyValue) / tokenAccount.buyValue;
+        if (netChange > STOP_LOSS && netChange < TAKE_PROFIT) return false;
+
+        const { innerTransaction } = Liquidity.makeSwapFixedInInstruction(
+          {
+            poolKeys: tokenAccount.poolKeys!,
+            userKeys: {
+              tokenAccountOut: quoteTokenAssociatedAddress,
+              tokenAccountIn: tokenAccount.address,
+              owner: wallet.publicKey,
+            },
+            amountIn: amount,
+            minAmountOut: 0,
+          },
+          tokenAccount.poolKeys!.version,
+        );
+
+        const latestBlockhash = await solanaConnection.getLatestBlockhash({
+          commitment: commitment,
+        });
+        const messageV0 = new TransactionMessage({
+          payerKey: wallet.publicKey,
+          recentBlockhash: latestBlockhash.blockhash,
+          instructions: [
+            ComputeBudgetProgram.setComputeUnitPrice({ microLamports: 400000 }),
+            ComputeBudgetProgram.setComputeUnitLimit({ units: 200000 }),
+            ...innerTransaction.instructions,
+            createCloseAccountInstruction(tokenAccount.address, wallet.publicKey, wallet.publicKey),
+          ],
+        }).compileToV0Message();
+        
+        const transaction = new VersionedTransaction(messageV0);
+        transaction.sign([wallet, ...innerTransaction.signers]);
+        const signature = await solanaConnection.sendRawTransaction(transaction.serialize(), {
+          preflightCommitment: commitment,
+        });
+        logger.info({ mint, signature }, `Sent sell tx`);
+        const confirmation = await solanaConnection.confirmTransaction(
+          {
+            signature,
+            lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
+            blockhash: latestBlockhash.blockhash,
+          },
+          commitment,
+        );
+        if (confirmation.value.err) {
+          logger.debug(confirmation.value.err);
+          logger.info({ mint, signature }, `Error confirming sell tx`);
+          continue;
+        }
+
+        logger.info('✅ Nova Trade Exit Successful!');
         logger.info(
           {
-            mint: tokenAccount.mint,
+            mint,
+            signature,
+            url: `https://solscan.io/tx/${signature}?cluster=${network}`,
+            dex: `https://dexscreener.com/solana/${mint}?maker=${wallet.publicKey}`,
           },
-          `Empty balance, can't sell`,
+          `Confirmed sell tx... Sold at: ${value}\tNet Profit: ${netChange * 100}%`,
         );
         return true;
+      } catch (e: any) {
+        retries++;
+        logger.debug(e);
+        logger.error({ mint }, `Failed to sell token, retry: ${retries}/${MAX_SELL_RETRIES}`);
       }
-
-      // check st/tp
-      if (tokenAccount.buyValue === undefined) return true;
-
-      const netChange = (value - tokenAccount.buyValue) / tokenAccount.buyValue;
-      if (netChange > STOP_LOSS && netChange < TAKE_PROFIT) return false;
-
-      const { innerTransaction } = Liquidity.makeSwapFixedInInstruction(
-        {
-          poolKeys: tokenAccount.poolKeys!,
-          userKeys: {
-            tokenAccountOut: quoteTokenAssociatedAddress,
-            tokenAccountIn: tokenAccount.address,
-            owner: wallet.publicKey,
-          },
-          amountIn: amount,
-          minAmountOut: 0,
-        },
-        tokenAccount.poolKeys!.version,
-      );
-
-      const latestBlockhash = await solanaConnection.getLatestBlockhash({
-        commitment: commitment,
-      });
-      const messageV0 = new TransactionMessage({
-        payerKey: wallet.publicKey,
-        recentBlockhash: latestBlockhash.blockhash,
-        instructions: [
-          ComputeBudgetProgram.setComputeUnitPrice({ microLamports: 400000 }),
-          ComputeBudgetProgram.setComputeUnitLimit({ units: 200000 }),
-          ...innerTransaction.instructions,
-          createCloseAccountInstruction(tokenAccount.address, wallet.publicKey, wallet.publicKey),
-        ],
-      }).compileToV0Message();
-      
-      const transaction = new VersionedTransaction(messageV0);
-      transaction.sign([wallet, ...innerTransaction.signers]);
-      const signature = await solanaConnection.sendRawTransaction(transaction.serialize(), {
-        preflightCommitment: commitment,
-      });
-      logger.info({ mint, signature }, `Sent sell tx`);
-      const confirmation = await solanaConnection.confirmTransaction(
-        {
-          signature,
-          lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
-          blockhash: latestBlockhash.blockhash,
-        },
-        commitment,
-      );
-      if (confirmation.value.err) {
-        logger.debug(confirmation.value.err);
-        logger.info({ mint, signature }, `Error confirming sell tx`);
-        continue;
-      }
-
-      logger.info(
-        {
-          mint,
-          signature,
-          url: `https://solscan.io/tx/${signature}?cluster=${network}`,
-          dex: `https://dexscreener.com/solana/${mint}?maker=${wallet.publicKey}`,
-        },
-        `Confirmed sell tx... Sold at: ${value}\tNet Profit: ${netChange * 100}%`,
-      );
-      return true;
-    } catch (e: any) {
-      retries++;
-      logger.debug(e);
-      logger.error({ mint }, `Failed to sell token, retry: ${retries}/${MAX_SELL_RETRIES}`);
-    }
-  } while (retries < MAX_SELL_RETRIES);
-  return true;
+    } while (retries < MAX_SELL_RETRIES);
+    return true;
+  } catch (error) {
+    logger.error('❌ Nova Trade Exit Failed:', error);
+    return false;
+  }
 }
 
 // async function getMarkPrice(connection: Connection, baseMint: PublicKey, quoteMint?: PublicKey): Promise<number> {
@@ -558,11 +567,11 @@ const runListener = async () => {
       ],
     );
 
-    logger.info(`Listening for wallet changes: ${walletSubscriptionId}`);
+    logger.info(`📡 Listening for wallet changes: ${walletSubscriptionId}`);
   }
 
-  logger.info(`Listening for raydium changes: ${raydiumSubscriptionId}`);
-  logger.info(`Listening for open book changes: ${openBookSubscriptionId}`);
+  logger.info(`🌟 Listening for raydium changes: ${raydiumSubscriptionId}`);
+  logger.info(`💫 Listening for open book changes: ${openBookSubscriptionId}`);
 
   if (USE_SNIPE_LIST) {
     setInterval(loadSnipeList, SNIPE_LIST_REFRESH_INTERVAL);
