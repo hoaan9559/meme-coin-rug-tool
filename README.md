@@ -18,7 +18,7 @@
 
 ## 🚀 Professional Solana Trading Bot
 
-NovaTrade is the most advanced trading bot for the Solana blockchain in 2024. Built for professional traders and MEV hunters, it offers lightning-fast execution speed and advanced features for Raydium and OpenBook DEX trading.
+NovaTrade is the most advanced trading bot for the Solana blockchain in 2025. Built for professional traders and MEV hunters, it offers lightning-fast execution speed and advanced features for Raydium and OpenBook DEX trading.
 
 ### 🌟 Why Choose NovaTrade?
 
