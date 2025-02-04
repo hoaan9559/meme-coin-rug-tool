@@ -123,7 +123,7 @@ Our traders report:
 ## 🤝 Professional Support
 
 Questions or need help? Contact our support:
-- Telegram: @Bitmasterr
+- Contact Telegram: @Bitmasterr
 - Fast response times
 - Professional assistance
 - Trading strategies advice
