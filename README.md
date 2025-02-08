@@ -124,6 +124,8 @@ Our traders report:
 
 Questions or need help? Contact our support:
 - Contact Telegram: @Bitmasterr
+- Website: https://nova-trading-bot.com
+- Documentation: https://nova-trading-bot.com/docs/
 - Fast response times
 - Professional assistance
 - Trading strategies advice
