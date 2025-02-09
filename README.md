@@ -80,7 +80,7 @@ npm start
 
 ## 🤝 Join Our Community
 
-- Discord: [Join Our Server](https://discord.gg/zUEQq3My)
+- Discord: [Join Our Server](https://discord.gg/awazpdVpjC)
 - Documentation: [Wiki](https://github.com/spinlists/meme-coin-rug-tool/wiki)
 
 ## 💫 Pro Tips
