@@ -81,7 +81,6 @@ npm start
 ## 🤝 Join Our Community
 
 - Discord: [Join Our Server](https://discord.gg/zUEQq3My)
-- Telegram: @Bitmasterr
 - Documentation: [Wiki](https://github.com/spinlists/meme-coin-rug-tool/wiki)
 
 ## 💫 Pro Tips
