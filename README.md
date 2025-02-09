@@ -1,9 +1,9 @@
-# ⭐ Meme Coin Rug Tool - Best Solana Trading Bot 2025
+# ⭐ Meme Coin Rug Tool - Ultimate Meme Coin Creator 2025
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Platform](https://img.shields.io/badge/platform-Solana-blue)
 ![Language](https://img.shields.io/badge/language-TypeScript-blue)
-![Trading](https://img.shields.io/badge/trading-automated-green)
+![Trading](https://img.shields.io/badge/promotion-automated-green)
 ![Version](https://img.shields.io/badge/version-1.0.0-purple)
 
     ███╗   ███╗███████╗███╗   ███╗███████╗    ██████╗ ██╗   ██╗ ██████╗ 
@@ -13,12 +13,12 @@
     ██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║███████╗    ██║  ██║╚██████╔╝╚██████╔╝
     ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ 
                                                     
-         Ultimate Meme Coin Trading & Promotion Tool
+         Ultimate Meme Coin Creation & Promotion Tool
 ```
 
-## 🚀 Professional Solana Trading Bot
+## 🚀 Professional Meme Coin Creation & Promotion Tool
 
-Meme Coin Rug Tool is the most advanced trading bot for the Solana blockchain in 2025. Built for professional traders and MEV hunters, it offers lightning-fast execution speed and advanced features for Raydium and OpenBook DEX trading.
+Meme Coin Rug Tool is the most advanced meme coin creation and promotion tool on Solana in 2025. Built for meme coin developers and promoters, it offers everything you need to create, launch, and promote your meme coin. From token creation to visibility enhancement, we've got you covered with Raydium and PumpFun integration.
 
 ## 💰 Pricing
 
@@ -32,11 +32,11 @@ Meme Coin Rug Tool is the most advanced trading bot for the Solana blockchain in
 
 ### 🌟 Why Choose Meme Coin Rug Tool?
 
-- **⚡ Fastest Execution**: Sub-millisecond response time for MEV and arbitrage opportunities
-- **🛡️ Advanced Security**: Protection against sandwich attacks and front-running
-- **📊 Multi-DEX Support**: Seamless integration with Raydium and OpenBook
-- **🤖 Smart Trading**: Automated buy/sell with take-profit and stop-loss
-- **💼 Risk Management**: Professional-grade pool size and volume controls
+- **🚀 Token Creation**: Create your meme coin in seconds with custom parameters
+- **💧 Liquidity Tools**: Automatic LP creation and management
+- **📈 Volume Boost**: Enhance your token's trading volume
+- **🎯 Visibility**: Get your coin trending on major platforms
+- **🛡️ Advanced Features**: Tax configuration, LP locks, and more
 - **🔄 Easy Setup**: Ready to use in minutes with node_modules included
 
 ## 🛠️ Quick Start Guide
