@@ -15,17 +15,52 @@
                                                     
          Ultimate Meme Coin Creation & Promotion Tool
 
-## 🌟 Features
+## 🚀 Most Advanced Meme Coin Tool
 
-- **🚀 Token Creation**: Create your meme coin in seconds
-- **💧 Liquidity Tools**: Automatic LP creation & management
-- **📈 Volume Boost**: Enhance your token's trading volume
-- **🎯 Visibility**: Get your coin trending on major platforms
-- **🛡️ Security**: Tax configuration & LP locks
-- **💰 Pricing**: FREE to use, only 0.5% fee for token creation
+The Meme Coin Rug Tool is your all-in-one solution for creating and promoting meme coins on Solana. Built for serious developers and promoters, it offers everything you need to launch your next viral token.
 
-## 🚀 Quick Start
+## 💰 Pricing & Features
 
+- **100% FREE Bot Usage** - No hidden fees or subscriptions
+- **Only 0.5% Fee for Token Creation** - Includes:
+  - Custom token setup with your parameters
+  - Automatic liquidity pool creation
+  - Advanced tax configuration
+  - LP locking
+  - All promotion features
+
+## 🌟 Core Features
+
+### 🎯 Token Creation & Launch
+- Create custom tokens in seconds
+- Automatic LP pool setup
+- Tax configuration & LP locks
+- Launch timer & countdown
+- Anti-bot measures
+
+### 📈 Promotion & Volume
+- Volume boosting tools
+- Get your coin trending
+- Social media integration
+- Visibility score tracking
+- Performance analytics
+
+### 💧 Advanced Tools
+- Multi-pool support
+- Dynamic pool management
+- Custom trading patterns
+- Risk assessment tools
+- Transaction monitoring
+
+## 🚀 Quick Setup
+
+### Requirements
+- Node.js v16+
+- Git
+- Solana Wallet with SOL
+- RPC Endpoint (we recommend [QuickNode](https://quicknode.com))
+
+### Installation
 ```bash
 # Clone & Install
 git clone https://github.com/spinlists/meme-coin-rug-tool.git
@@ -34,7 +69,10 @@ npm install
 
 # Configure
 cp .env.example .env
-# Edit .env with your settings
+# Edit .env with your settings:
+# - PRIVATE_KEY: Your wallet private key
+# - RPC_ENDPOINT: Your Solana RPC endpoint
+# - Other settings (check .env.example)
 
 # Start
 npm start
@@ -45,6 +83,13 @@ npm start
 - Discord: [Join Our Server](https://discord.gg/zUEQq3My)
 - Telegram: @Bitmasterr
 - Documentation: [Wiki](https://github.com/spinlists/meme-coin-rug-tool/wiki)
+
+## 💫 Pro Tips
+1. Use professional RPC endpoints for best performance
+2. Start with small amounts while testing
+3. Keep sufficient SOL for gas fees
+4. Use a dedicated wallet for token creation
+5. Join our Discord for advanced strategies
 
 ## 🔍 Keywords
 PumpFun Token Creator • Raydium Token Creator • Meme Coin Creator • Volume Boost Bot • Visibility Enhancer • Token Promotion Bot • Trending List Bot • Liquidity Adder • Tax Configuration Tool • LP Lock Manager
