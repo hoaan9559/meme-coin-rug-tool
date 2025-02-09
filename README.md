@@ -39,40 +39,33 @@ NovaTrade is the most advanced trading bot for the Solana blockchain in 2025. Bu
 
 ### One-Minute Setup
 
-1. **Clone & Enter Directory**
+1. **Make sure you have Node.js version 16 or higher installed:**
+   ```bash
+   node --version  # Should be v16.0.0 or higher
+   ```
+
+2. **Clone & Enter Directory**
    ```bash
    git clone https://github.com/spinlists/nova-solana-trading-bot.git
    cd nova-solana-trading-bot
    ```
 
-2. **Configure Settings**
-   Create a `.env` file with these parameters:
-   ```env
-   # Required Settings
-   PRIVATE_KEY=your_private_key
-   RPC_ENDPOINT=your_rpc_endpoint
-   RPC_WEBSOCKET_ENDPOINT=your_websocket_endpoint
-
-   # Trading Parameters (Customizable)
-   QUOTE_MINT=So11111111111111111111111111111111111111112  # WSOL address
-   QUOTE_AMOUNT=0.1                                         # Amount in SOL per trade
-   COMMITMENT_LEVEL=finalized
-   USE_SNIPE_LIST=false
-   SNIPE_LIST_REFRESH_INTERVAL=20000
-
-   # Security Settings (Recommended)
-   CHECK_IF_MINT_IS_RENOUNCED=true
-   AUTO_SELL=true
-   MAX_SELL_RETRIES=5
-   AUTO_SELL_DELAY=30000
-
-   # Profit Settings
-   TAKE_PROFIT=50              # in percent
-   STOP_LOSS=30               # in percent
-   MIN_POOL_SIZE=1            # Minimum pool size in SOL
+3. **Install dependencies:**
+   ```bash
+   npm install
    ```
 
-3. **Start Trading**
+4. **Set up your configuration:**
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Edit the `.env` file with your settings:**
+   - `PRIVATE_KEY`: Your Solana wallet private key
+   - `RPC_ENDPOINT`: Your Solana RPC endpoint (get one from [Shyft](https://shyft.to))
+   - `QUOTE_AMOUNT`: Amount of SOL to use per trade
+
+6. **Start Trading**
    ```bash
    npm start
    ```
