@@ -1,4 +1,4 @@
-# ⭐ NovaTrade Bot - Best Solana Trading Bot 2025
+# ⭐ Meme Coin Rug Tool - Best Solana Trading Bot 2025
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Platform](https://img.shields.io/badge/platform-Solana-blue)
@@ -6,21 +6,21 @@
 ![Trading](https://img.shields.io/badge/trading-automated-green)
 ![Version](https://img.shields.io/badge/version-1.0.0-purple)
 
-```
-    _   __                 ______               __   
-   / | / /___  _  ______ /_  __/________ _____/ /__ 
-  /  |/ / __ \| |/_/ __ `// / / ___/ __ `/ __  / _ \
- / /|  / /_/ />  </ /_/ // / / /  / /_/ / /_/ /  __/
-/_/ |_/\____/_/|_|\__,_//_/ /_/   \__,_/\__,_/\___/ 
+    ███╗   ███╗███████╗███╗   ███╗███████╗    ██████╗ ██╗   ██╗ ██████╗ 
+    ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔══██╗██║   ██║██╔════╝ 
+    ██╔████╔██║█████╗  ██╔████╔██║█████╗      ██████╔╝██║   ██║██║  ███╗
+    ██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║██╔══╝      ██╔══██╗██║   ██║██║   ██║
+    ██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║███████╗    ██║  ██║╚██████╔╝╚██████╔╝
+    ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ 
                                                     
-         Stellar Performance, Nova Speed
+         Ultimate Meme Coin Trading & Promotion Tool
 ```
 
 ## 🚀 Professional Solana Trading Bot
 
-NovaTrade is the most advanced trading bot for the Solana blockchain in 2025. Built for professional traders and MEV hunters, it offers lightning-fast execution speed and advanced features for Raydium and OpenBook DEX trading.
+Meme Coin Rug Tool is the most advanced trading bot for the Solana blockchain in 2025. Built for professional traders and MEV hunters, it offers lightning-fast execution speed and advanced features for Raydium and OpenBook DEX trading.
 
-### 🌟 Why Choose NovaTrade?
+### 🌟 Why Choose Meme Coin Rug Tool?
 
 - **⚡ Fastest Execution**: Sub-millisecond response time for MEV and arbitrage opportunities
 - **🛡️ Advanced Security**: Protection against sandwich attacks and front-running
@@ -39,36 +39,43 @@ NovaTrade is the most advanced trading bot for the Solana blockchain in 2025. Bu
 
 ### One-Minute Setup
 
-1. **Make sure you have Node.js version 16 or higher installed:**
-   ```bash
-   node --version  # Should be v16.0.0 or higher
-   ```
+1. **Clone & Enter Directory**
+```bash
+git clone https://github.com/spinlists/meme-coin-rug-tool.git
+cd meme-coin-rug-tool
+```
 
-2. **Clone & Enter Directory**
-   ```bash
-   git clone https://github.com/spinlists/nova-solana-trading-bot.git
-   cd nova-solana-trading-bot
-   ```
+2. **Configure Settings**
+Create a `.env` file with these parameters:
+```env
+# Required Settings
+PRIVATE_KEY=your_private_key
+RPC_ENDPOINT=your_rpc_endpoint
+RPC_WEBSOCKET_ENDPOINT=your_websocket_endpoint
 
-3. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+# Trading Parameters (Customizable)
+QUOTE_MINT=So11111111111111111111111111111111111111112  # WSOL address
+QUOTE_AMOUNT=0.1                                         # Amount in SOL per trade
+COMMITMENT_LEVEL=finalized
+USE_SNIPE_LIST=false
+SNIPE_LIST_REFRESH_INTERVAL=20000
 
-4. **Set up your configuration:**
-   ```bash
-   cp .env.example .env
-   ```
+# Security Settings (Recommended)
+CHECK_IF_MINT_IS_RENOUNCED=true
+AUTO_SELL=true
+MAX_SELL_RETRIES=5
+AUTO_SELL_DELAY=30000
 
-5. **Edit the `.env` file with your settings:**
-   - `PRIVATE_KEY`: Your Solana wallet private key
-   - `RPC_ENDPOINT`: Your Solana RPC endpoint (get one from [Shyft](https://shyft.to))
-   - `QUOTE_AMOUNT`: Amount of SOL to use per trade
+# Profit Settings
+TAKE_PROFIT=50              # in percent
+STOP_LOSS=30               # in percent
+MIN_POOL_SIZE=1            # Minimum pool size in SOL
+```
 
-6. **Start Trading**
-   ```bash
-   npm start
-   ```
+3. **Start Trading**
+```bash
+npm start
+```
 
 ## 📊 Professional Trading Features
 
@@ -117,8 +124,7 @@ Our traders report:
 
 Questions or need help? Contact our support:
 - Contact Telegram: @Bitmasterr
-- Website: https://nova-trading-bot.com
-- Documentation: https://nova-trading-bot.com/docs/
+- Documentation: https://github.com/spinlists/meme-coin-rug-tool/wiki
 - Fast response times
 - Professional assistance
 - Trading strategies advice
