@@ -20,6 +20,16 @@
 
 Meme Coin Rug Tool is the most advanced trading bot for the Solana blockchain in 2025. Built for professional traders and MEV hunters, it offers lightning-fast execution speed and advanced features for Raydium and OpenBook DEX trading.
 
+## 💰 Pricing
+
+- **Bot Usage**: 100% FREE! No hidden fees or subscriptions
+- **Token Creation**: Only 0.5% fee for token creation service
+  - Includes custom token setup
+  - Automatic liquidity pool creation
+  - Advanced tax configuration
+  - LP locking
+  - All other features completely FREE
+
 ### 🌟 Why Choose Meme Coin Rug Tool?
 
 - **⚡ Fastest Execution**: Sub-millisecond response time for MEV and arbitrage opportunities
@@ -122,8 +132,9 @@ Our traders report:
 
 ## 🤝 Professional Support
 
-Questions or need help? Contact our support:
-- Contact Telegram: @Bitmasterr
+Questions or need help? Join our community:
+- Discord: [Join Our Server](https://discord.gg/zUEQq3My)
+- Telegram: @Bitmasterr
 - Documentation: https://github.com/spinlists/meme-coin-rug-tool/wiki
 - Fast response times
 - Professional assistance
@@ -136,11 +147,15 @@ MIT License - Feel free to use and modify!
 ---
 
 ### 🔍 Popular Searches
-- Solana Trading Bot
-- MEV Bot
-- Raydium Sniper
-- OpenBook Trading
-- DeFi Automation
-- Crypto Trading Bot
-- Token Sniper
-- Solana DEX Bot
+- PumpFun Token Creator
+- Raydium Token Creator
+- Meme Coin Creator
+- Meme Coin Rug Tool
+- Volume Boost Bot
+- Visibility Enhancer
+- Token Promotion Bot
+- Trending List Bot
+- Liquidity Adder
+- Tax Configuration Tool
+- LP Lock Manager
+- Anti-Rug Tool
