@@ -3,61 +3,59 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Platform](https://img.shields.io/badge/platform-Solana-blue)
 ![Language](https://img.shields.io/badge/language-TypeScript-blue)
-![Promotion](https://img.shields.io/badge/promotion-automated-green)
 ![Version](https://img.shields.io/badge/version-1.0.0-purple)
 
-    ███╗   ███╗███████╗███╗   ███╗███████╗    ██████╗ ██╗   ██╗ ██████╗ 
-    ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔══██╗██║   ██║██╔════╝ 
-    ██╔████╔██║█████╗  ██╔████╔██║█████╗      ██████╔╝██║   ██║██║  ███╗
-    ██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║██╔══╝      ██╔══██╗██║   ██║██║   ██║
-    ██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║███████╗    ██║  ██║╚██████╔╝╚██████╔╝
-    ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ 
-                                                    
-         Ultimate Meme Coin Creation & Promotion Tool
+    ███╗   ███╗███████╗███╗   ███╗███████╗     ██████╗ ██████╗ ██╗███╗   ██╗
+    ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔════╝██╔═══██╗██║████╗  ██║
+    ██╔████╔██║█████╗  ██╔████╔██║█████╗      ██║     ██║   ██║██║██╔██╗ ██║
+    ██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║██╔══╝      ██║     ██║   ██║██║██║╚██╗██║
+    ██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║███████╗    ╚██████╗╚██████╔╝██║██║ ╚████║
+    ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝
+                   🚀 Ultimate Meme Coin Creation & Promotion Tool
+                            [ Press Ctrl+C to Exit ]
 
 ## 🚀 Most Advanced Meme Coin Tool
 
 The Meme Coin Rug Tool is your all-in-one solution for creating and promoting meme coins on Solana. Built for serious developers and promoters, it offers everything you need to launch your next viral token.
 
-## 💰 Pricing & Features
-
-- **100% FREE Bot Usage** - No hidden fees or subscriptions
-- **Only 0.5% Fee for Token Creation** - Includes:
-  - Custom token setup with your parameters
-  - Automatic liquidity pool creation
-  - Advanced tax configuration
-  - LP locking
-  - All promotion features
-
 ## 🌟 Core Features
 
-### 🎯 Token Creation & Launch
-- Create custom tokens in seconds
-- Automatic LP pool setup
-- Tax configuration & LP locks
-- Launch timer & countdown
-- Anti-bot measures
+### 🎯 Create New Coin
+- Generate a new meme coin token
+- Set name, symbol, and supply
+- Configure tax and fees
 
-### 📈 Promotion & Volume
-- Volume boosting tools
-- Get your coin trending
-- Social media integration
-- Visibility score tracking
-- Performance analytics
+### 🚀 Launch Preparation
+- Set initial liquidity
+- Configure trading limits
+- Set launch time and date
 
-### 💧 Advanced Tools
-- Multi-pool support
-- Dynamic pool management
-- Custom trading patterns
-- Risk assessment tools
-- Transaction monitoring
+### 💎 Tokenomics Setup
+- Configure buy/sell taxes
+- Set max wallet size
+- Define transfer limits
+
+### 🌊 Add Liquidity Pool
+- Create Raydium pool
+- Set initial price
+- Lock liquidity
+
+### 📢 Marketing Tools
+- Generate trending volume
+- Boost visibility score
+- Create buy pressure
+
+### 🛡️ Security Check
+- Verify contract
+- Check for vulnerabilities
+- Audit tokenomics
 
 ## 🚀 Quick Setup
 
 ### Requirements
 - Node.js v16+
 - Git
-- Solana Wallet with SOL
+- Solana Wallet with minimum 0.5 SOL
 - RPC Endpoint (we recommend [QuickNode](https://quicknode.com))
 
 ### Installation
@@ -65,34 +63,34 @@ The Meme Coin Rug Tool is your all-in-one solution for creating and promoting me
 # Clone & Install
 git clone https://github.com/spinlists/meme-coin-rug-tool.git
 cd meme-coin-rug-tool
-npm install
 
-# Configure
+# Install dependencies
+npm install
+npm install -D typescript ts-node @types/node
+
+# Configure environment
 cp .env.example .env
+
 # Edit .env with your settings:
 # - PRIVATE_KEY: Your wallet private key
 # - RPC_ENDPOINT: Your Solana RPC endpoint
-# - Other settings (check .env.example)
+# - RPC_WEBSOCKET_ENDPOINT: Your Solana WebSocket endpoint
+# - QUOTE_MINT: The mint address for the quote currency (e.g., WSOL)
+# - QUOTE_AMOUNT: Amount of the quote currency (min 0.5 SOL)
+# - MIN_POOL_SIZE: Minimum liquidity pool size (min 0.5 SOL)
+# - LOG_LEVEL: Logging level (e.g., info)
+# - BIRDEYE_API_KEY: Optional API key for market tracking
 
-# Start
+# Start the bot
 npm start
 ```
 
-## 🤝 Join Our Community
-
-- Discord: [Join Our Server](https://discord.gg/zUEQq3My)
-- Telegram: @Bitmasterr
-- Documentation: [Wiki](https://github.com/spinlists/meme-coin-rug-tool/wiki)
-
 ## 💫 Pro Tips
-1. Use professional RPC endpoints for best performance
-2. Start with small amounts while testing
+1. For optimal results, we recommend using 2-10 SOL for the perfect rug! 🚀
+2. Use professional RPC endpoints for best performance
 3. Keep sufficient SOL for gas fees
 4. Use a dedicated wallet for token creation
-5. Join our Discord for advanced strategies
-
-## 🔍 Keywords
-PumpFun Token Creator • Raydium Token Creator • Meme Coin Creator • Volume Boost Bot • Visibility Enhancer • Token Promotion Bot • Trending List Bot • Liquidity Adder • Tax Configuration Tool • LP Lock Manager
+5. Join our community for advanced strategies
 
 ## ⚠️ Disclaimer
-This tool is for educational purposes only. Always DYOR and trade responsibly.
+This tool is for educational purposes only. Always DYOR and use responsibly.

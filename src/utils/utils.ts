@@ -9,13 +9,18 @@ import bs58 from 'bs58';
 
 dotenv.config();
 
-export const retrieveEnvVariable = (variableName: string, logger: Logger) => {
-  const variable = process.env[variableName] || '';
-  if (!variable) {
-    logger.error(`${variableName} is not set`);
+export function retrieveEnvVariable(variableName: string, logger: Logger): string {
+  // Skip trading-related environment variables
+  if (['MIN_POOL_SIZE', 'QUOTE_AMOUNT', 'QUOTE_MINT'].includes(variableName)) {
+    return process.env[variableName] || '';
+  }
+
+  const value = process.env[variableName];
+  if (!value) {
+    logger.error(`Missing environment variable: ${variableName}`);
     process.exit(1);
   }
-  return variable;
+  return value;
 };
 
 interface Pair {

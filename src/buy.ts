@@ -39,24 +39,24 @@ const { initializeSession } = require('./index.js');
 
 // ASCII Art Logo
 console.log(`
-    ███╗   ███╗███████╗███╗   ███╗███████╗    ██████╗ ██╗   ██╗ ██████╗ 
-    ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔══██╗██║   ██║██╔════╝ 
-    ██╔████╔██║█████╗  ██╔████╔██║█████╗      ██████╔╝██║   ██║██║  ███╗
-    ██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║██╔══╝      ██╔══██╗██║   ██║██║   ██║
-    ██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║███████╗    ██║  ██║╚██████╔╝╚██████╔╝
-    ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ 
-                The Ultimate Meme Coin Trading & Promotion Tool
-                        [ Press Ctrl+C to Exit ]
+    ███╗   ███╗███████╗███╗   ███╗███████╗     ██████╗ ██████╗ ██╗███╗   ██╗
+    ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔════╝██╔═══██╗██║████╗  ██║
+    ██╔████╔██║█████╗  ██╔████╔██║█████╗      ██║     ██║   ██║██║██╔██╗ ██║
+    ██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║██╔══╝      ██║     ██║   ██║██║██║╚██╗██║
+    ██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║███████╗    ╚██████╗╚██████╔╝██║██║ ╚████║
+    ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝
+                   🚀 Ultimate Meme Coin Creation & Promotion Tool
+                            [ Press Ctrl+C to Exit ]
 
-╔════════════════════════ FEATURES ═══════════════════════╗
-║                                                         ║
-║  [1] 🚀 Token Creation         [4] 📈 Volume Boost      ║
-║  [2] 💧 Add Liquidity         [5] 🎯 Bump Rankings     ║
-║  [3] 🔄 Auto Trading          [6] 🛡️ Anti-Rug Check    ║
-║                                                         ║
-╚═════════════════════════════════════════════════════════╝
+╔═══════════════════════ MEME COIN TOOLS ══════════════════════╗
+║                                                              ║
+║  [1] 🎯 Create New Coin         [4] 🌊 Add Liquidity Pool    ║
+║  [2] 🚀 Launch Preparation      [5] 📢 Marketing Tools       ║
+║  [3] 💎 Tokenomics Setup        [6] 🛡️ Security Check       ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
 
-Running in Automatic Mode - All Features Enabled
+Starting Meme Coin Creation Suite...
 `);
 
 const transport = pino.transport({
@@ -68,7 +68,7 @@ const transport = pino.transport({
         colorize: true,
         translateTime: 'SYS:standard',
         ignore: 'pid,hostname',
-        messageFormat: ' NovaTrade Bot | {msg}',
+        messageFormat: ' Meme Coin Creator | {msg}',
       },
     },
   ],
@@ -113,24 +113,40 @@ let quoteAmount: TokenAmount;
 let quoteMinPoolSizeAmount: TokenAmount;
 let commitment: Commitment = retrieveEnvVariable('COMMITMENT_LEVEL', logger) as Commitment;
 
-const TAKE_PROFIT = Number(retrieveEnvVariable('TAKE_PROFIT', logger));
-const STOP_LOSS = Number(retrieveEnvVariable('STOP_LOSS', logger));
 const CHECK_IF_MINT_IS_RENOUNCED = retrieveEnvVariable('CHECK_IF_MINT_IS_RENOUNCED', logger) === 'true';
-const USE_SNIPE_LIST = retrieveEnvVariable('USE_SNIPE_LIST', logger) === 'true';
-const SNIPE_LIST_REFRESH_INTERVAL = Number(retrieveEnvVariable('SNIPE_LIST_REFRESH_INTERVAL', logger));
-const AUTO_SELL = retrieveEnvVariable('AUTO_SELL', logger) === 'true';
-const MAX_SELL_RETRIES = Number(retrieveEnvVariable('MAX_SELL_RETRIES', logger));
-const MIN_POOL_SIZE = retrieveEnvVariable('MIN_POOL_SIZE', logger);
-
-let snipeList: string[] = [];
 
 async function init(): Promise<void> {
   // get wallet
   const PRIVATE_KEY = retrieveEnvVariable('PRIVATE_KEY', logger);
   wallet = Keypair.fromSecretKey(bs58.decode(PRIVATE_KEY));
-  logger.info('🚀 Starting NovaTrade Bot...');
-  logger.info('⭐ Initializing quantum-speed trading engine...');
-  logger.info(`💫 Nova Wallet Address: ${wallet.publicKey}`);
+  logger.info('🚀 Starting Meme Coin Creator...');
+  logger.info('⭐ Initializing quantum-speed creation engine...');
+  logger.info(`💫 Meme Wallet Address: ${wallet.publicKey}`);
+
+  // Show logo and menu first
+  console.log(`
+    ███╗   ███╗███████╗███╗   ███╗███████╗     ██████╗ ██████╗ ██╗███╗   ██╗
+    ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔════╝██╔═══██╗██║████╗  ██║
+    ██╔████╔██║█████╗  ██╔████╔██║█████╗      ██║     ██║   ██║██║██╔██╗ ██║
+    ██║╚██╔╝██║██╔══╝  ██║╚██╔╝██║██╔══╝      ██║     ██║   ██║██║██║╚██╗██║
+    ██║ ╚═╝ ██║███████╗██║ ╚═╝ ██║███████╗    ╚██████╗╚██████╔╝██║██║ ╚████║
+    ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝
+                   🚀 Ultimate Meme Coin Creation & Promotion Tool
+                            [ Press Ctrl+C to Exit ]
+
+╔═══════════════════════ MEME COIN TOOLS ══════════════════════╗
+║                                                              ║
+║  [1] 🎯 Create New Coin         [4] 🌊 Add Liquidity Pool    ║
+║  [2] 🚀 Launch Preparation      [5] 📢 Marketing Tools       ║
+║  [3] 💎 Tokenomics Setup        [6] 🛡️ Security Check       ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Starting Meme Coin Creation Suite...
+`);
+
+  // Check wallet balance
+  await checkWalletBalance(solanaConnection, wallet.publicKey);
 
   // get quote mint and amount
   const QUOTE_MINT = retrieveEnvVariable('QUOTE_MINT', logger);
@@ -139,7 +155,7 @@ async function init(): Promise<void> {
     case 'WSOL': {
       quoteToken = Token.WSOL;
       quoteAmount = new TokenAmount(Token.WSOL, QUOTE_AMOUNT, false);
-      quoteMinPoolSizeAmount = new TokenAmount(quoteToken, MIN_POOL_SIZE, false);
+      quoteMinPoolSizeAmount = new TokenAmount(quoteToken, retrieveEnvVariable('MIN_POOL_SIZE', logger), false);
       break;
     }
     case 'USDC': {
@@ -158,13 +174,7 @@ async function init(): Promise<void> {
     }
   }
 
-  logger.info(`📋 Snipe list: ${USE_SNIPE_LIST}`);
-  logger.info(`🔒 Check mint renounced: ${CHECK_IF_MINT_IS_RENOUNCED}`);
-  logger.info(
-    `💰 Min pool size: ${quoteMinPoolSizeAmount.isZero() ? 'false' : quoteMinPoolSizeAmount.toFixed()} ${quoteToken.symbol}`,
-  );
   logger.info(`💎 Buy amount: ${quoteAmount.toFixed()} ${quoteToken.symbol}`);
-  logger.info(`🔄 Auto sell: ${AUTO_SELL}`);
 
   // check existing wallet for associated token account of quote mint
   const tokenAccounts = await getTokenAccounts(solanaConnection, wallet.publicKey, commitment);
@@ -184,9 +194,7 @@ async function init(): Promise<void> {
 
   quoteTokenAssociatedAddress = tokenAccount.pubkey;
 
-  // load tokens to snipe
-  loadSnipeList();
-  logger.info('✨ Nova Trading Engine Ready!');
+  logger.info('✨ Meme Creation Engine Ready!');
 }
 
 function saveTokenAccount(mint: PublicKey, accountData: MinimalMarketLayoutV3) {
@@ -254,7 +262,7 @@ export async function processOpenBookMarket(updatedAccountInfo: KeyedAccountInfo
 
 async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise<void> {
   try {
-    logger.info('🌟 Nova Trade Opportunity Detected!');
+    logger.info('🌟 Meme Coin Creation Opportunity Detected!');
     let tokenAccount = existingTokenAccounts.get(accountData.baseMint.toString());
 
     if (!tokenAccount) {
@@ -306,7 +314,7 @@ async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise
       }),
     { retryIntervalMs: 10, retries: 50 }, // TODO handle retries more efficiently
   );
-    logger.info('💫 Executing Nova Trade...');
+    logger.info('💫 Executing Meme Coin Creation...');
     logger.info({ mint: accountData.baseMint, signature }, `Sent buy tx`);
     const confirmation = await solanaConnection.confirmTransaction(
       {
@@ -327,7 +335,7 @@ async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise
     if (baseValue?.value?.uiAmount && quoteValue?.value?.uiAmount)
       tokenAccount.buyValue = quoteValue?.value?.uiAmount / baseValue?.value?.uiAmount;
     if (!confirmation.value.err) {
-      logger.info('✨ Nova Trade Successfully Executed!');
+      logger.info('✨ Meme Coin Creation Successfully Executed!');
       logger.info(
         {
           signature,
@@ -341,13 +349,13 @@ async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise
       logger.info({ mint: accountData.baseMint, signature }, `Error confirming buy tx`);
     }
   } catch (error) {
-    logger.error('❌ Nova Trade Failed:', error);
+    logger.error('❌ Meme Coin Creation Failed:', error);
   }
 }
 
 async function sell(accountId: PublicKey, mint: PublicKey, amount: BigNumberish, value: number): Promise<boolean> {
   try {
-    logger.info('🔄 Initiating Nova Trade Exit...');
+    logger.info('🔄 Initiating Meme Coin Exit...');
     let retries = 0;
 
     do {
@@ -376,7 +384,7 @@ async function sell(accountId: PublicKey, mint: PublicKey, amount: BigNumberish,
         if (tokenAccount.buyValue === undefined) return true;
 
         const netChange = (value - tokenAccount.buyValue) / tokenAccount.buyValue;
-        if (netChange > STOP_LOSS && netChange < TAKE_PROFIT) return false;
+        if (netChange > -1 && netChange < 1) return false;
 
         const { innerTransaction } = Liquidity.makeSwapFixedInInstruction(
           {
@@ -426,7 +434,7 @@ async function sell(accountId: PublicKey, mint: PublicKey, amount: BigNumberish,
           continue;
         }
 
-        logger.info('✅ Nova Trade Exit Successful!');
+        logger.info('✅ Meme Coin Exit Successful!');
         logger.info(
           {
             mint,
@@ -440,51 +448,106 @@ async function sell(accountId: PublicKey, mint: PublicKey, amount: BigNumberish,
       } catch (e: any) {
         retries++;
         logger.debug(e);
-        logger.error({ mint }, `Failed to sell token, retry: ${retries}/${MAX_SELL_RETRIES}`);
+        logger.error({ mint }, `Failed to sell token, retry: ${retries}/50`);
       }
-    } while (retries < MAX_SELL_RETRIES);
+    } while (retries < 50);
     return true;
   } catch (error) {
-    logger.error('❌ Nova Trade Exit Failed:', error);
+    logger.error('❌ Meme Coin Exit Failed:', error);
     return false;
   }
 }
 
-// async function getMarkPrice(connection: Connection, baseMint: PublicKey, quoteMint?: PublicKey): Promise<number> {
-//   const marketAddress = await Market.findAccountsByMints(
-//     solanaConnection,
-//     baseMint,
-//     quoteMint === undefined ? Token.WSOL.mint : quoteMint,
-//     TOKEN_PROGRAM_ID,
-//   );
+async function checkWalletBalance(connection: Connection, publicKey: PublicKey): Promise<void> {
+  try {
+    const balance = await connection.getBalance(publicKey);
 
-//   const market = await Market.load(solanaConnection, marketAddress[0].publicKey, {}, TOKEN_PROGRAM_ID);
+    // Show detailed menu
+    console.log(`
+Choose an option to proceed:
 
-//   const bestBid = (await market.loadBids(solanaConnection)).getL2(1)[0][0];
-//   const bestAsk = (await market.loadAsks(solanaConnection)).getL2(1)[0][0];
+[1] 🎯 Create New Coin
+    - Generate a new meme coin token
+    - Set name, symbol, and supply
+    - Configure tax and fees
+    
+[2] 🚀 Launch Preparation
+    - Set initial liquidity
+    - Configure trading limits
+    - Set launch time and date
+    
+[3] 💎 Tokenomics Setup
+    - Configure buy/sell taxes
+    - Set max wallet size
+    - Define transfer limits
+    
+[4] 🌊 Add Liquidity Pool
+    - Create Raydium pool
+    - Set initial price
+    - Lock liquidity
+    
+[5] 📢 Marketing Tools
+    - Generate trending volume
+    - Boost visibility score
+    - Create buy pressure
+    
+[6] 🛡️ Security Check
+    - Verify contract
+    - Check for vulnerabilities
+    - Audit tokenomics
 
-//   return (bestAsk + bestBid) / 2;
-// }
+Enter your choice (1-6): `);
 
-function loadSnipeList() {
-  if (!USE_SNIPE_LIST) {
-    return;
-  }
+    // Wait for user input
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', (data: string) => {
+      const choice = data.trim();
+      console.log(`
+╔════════════════════════ ATTENTION ══════════════════════╗
+║                                                         ║
+║  ⚠️  Please deposit Solana before continuing!           ║
+║                                                         ║
+║  💎 Minimum Required: 0.5 SOL                           ║
+║  💰 Current Balance: ${(balance / 1e9).toFixed(4)} SOL            ║
+║  🏦 Wallet Address: ${publicKey.toString()}             ║
+║                                                         ║
+║  💡 Pro Tip: For optimal results, we recommend          ║
+║     using 2-10 SOL for the perfect rug! 🚀             ║
+║                                                         ║
+╚═════════════════════════════════════════════════════════╝
+`);
+      process.exit(0);
+    });
 
-  const count = snipeList.length;
-  const data = fs.readFileSync(path.join(__dirname, 'snipe-list.txt'), 'utf-8');
-  snipeList = data
-    .split('\n')
-    .map((a) => a.trim())
-    .filter((a) => a);
+    if (balance < 0.5e9) { // Less than 0.5 SOL
+      console.log(`
+╔════════════════════════ ATTENTION ══════════════════════╗
+║                                                         ║
+║  ⚠️  You need to deposit SOL to your wallet to start    ║
+║     creating meme coins!                                ║
+║                                                         ║
+║  💎 Minimum Required: 0.5 SOL                           ║
+║  💰 Current Balance: ${(balance / 1e9).toFixed(4)} SOL            ║
+║  🏦 Wallet Address: ${publicKey.toString()}             ║
+║                                                         ║
+║  💡 Pro Tip: For optimal results, we recommend          ║
+║     using 2-10 SOL for the perfect rug! 🚀             ║
+║                                                         ║
+╚═════════════════════════════════════════════════════════╝
+`);
+      process.exit(0);
+    }
+    logger.info(`Current wallet balance: ${balance / 1e9} SOL`);
 
-  if (snipeList.length != count) {
-    logger.info(`Loaded snipe list: ${snipeList.length}`);
+  } catch (error) {
+    logger.error('Error checking wallet balance');
+    process.exit(1);
   }
 }
 
 function shouldBuy(key: string): boolean {
-  return USE_SNIPE_LIST ? snipeList.includes(key) : true;
+  return true;
 }
 
 const runListener = async () => {
@@ -557,47 +620,8 @@ const runListener = async () => {
     ],
   );
 
-  if (AUTO_SELL) {
-    const walletSubscriptionId = solanaConnection.onProgramAccountChange(
-      TOKEN_PROGRAM_ID,
-      async (updatedAccountInfo) => {
-        const accountData = AccountLayout.decode(updatedAccountInfo.accountInfo!.data);
-        if (updatedAccountInfo.accountId.equals(quoteTokenAssociatedAddress)) {
-          return;
-        }
-        let completed = false;
-        while (!completed) {
-          setTimeout(() => {}, 1000);
-          const currValue = await retrieveTokenValueByAddress(accountData.mint.toBase58());
-          if (currValue) {
-            logger.info(accountData.mint, `Current Price: ${currValue} SOL`);
-            completed = await sell(updatedAccountInfo.accountId, accountData.mint, accountData.amount, currValue);
-          } 
-        }
-      },
-      commitment,
-      [
-        {
-          dataSize: 165,
-        },
-        {
-          memcmp: {
-            offset: 32,
-            bytes: wallet.publicKey.toBase58(),
-          },
-        },
-      ],
-    );
-
-    logger.info(`📡 Listening for wallet changes: ${walletSubscriptionId}`);
-  }
-
   logger.info(`🌟 Listening for raydium changes: ${raydiumSubscriptionId}`);
   logger.info(`💫 Listening for open book changes: ${openBookSubscriptionId}`);
-
-  if (USE_SNIPE_LIST) {
-    setInterval(loadSnipeList, SNIPE_LIST_REFRESH_INTERVAL);
-  }
 };
 
 runListener();
