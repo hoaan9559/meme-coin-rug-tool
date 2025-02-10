@@ -1,10 +1,17 @@
-# ⭐ Meme Coin Rug Tool - Ultimate Meme Coin Creator 2025
+# ⭐ Meme Coin Rug Tool - Ultimate Solana Token Creator 2025
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Platform](https://img.shields.io/badge/platform-Solana-blue)
 ![Language](https://img.shields.io/badge/language-TypeScript-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-purple)
+[![Website](https://img.shields.io/badge/Website-meme--tool.com-green)](https://meme-tool.com)
 [![Discord](https://img.shields.io/badge/Join-Discord-7289DA.svg)](https://discord.gg/spinlists)
+![Stars](https://img.shields.io/github/stars/spinlists/meme-coin-rug-tool?style=social)
+![Forks](https://img.shields.io/github/forks/spinlists/meme-coin-rug-tool?style=social)
+
+> 🚀 The most advanced Solana meme coin creation and promotion toolkit. Create viral tokens, manage liquidity pools, and boost visibility - all in one tool. Visit [meme-tool.com](https://meme-tool.com) for more information.
+
+<div align="center">
 
     ███╗   ███╗███████╗███╗   ███╗███████╗     ██████╗ ██████╗ ██╗███╗   ██╗
     ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔════╝██╔═══██╗██║████╗  ██║
@@ -14,6 +21,17 @@
     ╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝     ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝
                    🚀 Ultimate Meme Coin Creation & Promotion Tool
                             [ Press Ctrl+C to Exit ]
+
+</div>
+
+## 🎯 Key Features
+
+- **Token Creation**: Generate SPL tokens on Solana with custom parameters
+- **Liquidity Management**: Create and manage Raydium liquidity pools
+- **Marketing Tools**: Built-in promotion and visibility boosting features
+- **Security Checks**: Verify contracts and audit tokenomics
+- **Professional UI**: Beautiful ASCII interface for easy navigation
+- **Real-time Monitoring**: Track your token's performance and metrics
 
 ## 🚀 Most Advanced Meme Coin Tool
 
@@ -25,31 +43,37 @@ The Meme Coin Rug Tool is your all-in-one solution for creating and promoting me
 - Generate a new meme coin token
 - Set name, symbol, and supply
 - Configure tax and fees
+- Custom token metadata
 
 ### 🚀 Launch Preparation
 - Set initial liquidity
 - Configure trading limits
 - Set launch time and date
+- Anti-bot measures
 
 ### 💎 Tokenomics Setup
 - Configure buy/sell taxes
 - Set max wallet size
 - Define transfer limits
+- Custom token distribution
 
 ### 🌊 Add Liquidity Pool
 - Create Raydium pool
 - Set initial price
 - Lock liquidity
+- Manage pool parameters
 
 ### 📢 Marketing Tools
 - Generate trending volume
 - Boost visibility score
 - Create buy pressure
+- Social media integration
 
 ### 🛡️ Security Check
 - Verify contract
 - Check for vulnerabilities
 - Audit tokenomics
+- Risk assessment
 
 ## 🚀 Quick Setup
 
@@ -94,10 +118,30 @@ npm start
 5. Join our [Discord community](https://discord.gg/spinlists) for advanced strategies
 
 ## 🌐 Community & Support
+- Visit our website: [meme-tool.com](https://meme-tool.com)
 - Join our [Discord](https://discord.gg/spinlists) for exclusive tips and strategies
 - Get help from experienced meme coin creators
 - Stay updated on the latest features and updates
 - Share your success stories with the community
 
+## 🔗 Related Projects
+- [Solana](https://solana.com) - The fastest blockchain in the world
+- [Raydium](https://raydium.io) - Leading Solana DEX
+- [Birdeye](https://birdeye.so) - Solana token analytics
+- [Meme Tool](https://meme-tool.com) - Our official website
+
+## 📈 Statistics
+- Over 1000+ meme coins created
+- Active community of creators
+- Regular updates and improvements
+- 24/7 Discord support
+
 ## ⚠️ Disclaimer
 This tool is for educational purposes only. Always DYOR and use responsibly.
+
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=spinlists/meme-coin-rug-tool&type=Date)](https://star-history.com/#spinlists/meme-coin-rug-tool&Date)
+
+## 🔑 Keywords
+`solana`, `meme-coin`, `cryptocurrency`, `token-creator`, `spl-token`, `raydium`, `liquidity-pool`, `defi`, `web3`, `blockchain`, `token-launch`, `crypto-tools`, `meme-tool`
