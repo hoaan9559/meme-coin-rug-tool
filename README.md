@@ -5,7 +5,7 @@
 ![Language](https://img.shields.io/badge/language-TypeScript-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-purple)
 [![Website](https://img.shields.io/badge/Website-meme--tool.com-green)](https://meme-tool.com)
-[![Discord](https://img.shields.io/discord/1193546650867740682?color=%237289DA&label=discord&logo=discord&logoColor=white)](https://discord.gg/5YvFTU9R)
+[![Discord](https://img.shields.io/discord/1193546650867740682?color=%237289DA&label=discord&logo=discord&logoColor=white)](https://discord.gg/JXgk42xhaH)
 ![Stars](https://img.shields.io/github/stars/spinlists/meme-coin-rug-tool?style=social)
 ![Forks](https://img.shields.io/github/forks/spinlists/meme-coin-rug-tool?style=social)
 
@@ -115,11 +115,11 @@ npm start
 2. Use professional RPC endpoints for best performance
 3. Keep sufficient SOL for gas fees
 4. Use a dedicated wallet for token creation
-5. Join our [Discord community](https://discord.gg/5YvFTU9R) for advanced strategies
+5. Join our [Discord community](https://discord.gg/JXgk42xhaH) for advanced strategies
 
 ## 🌐 Community & Support
 - Visit our website: [meme-tool.com](https://meme-tool.com)
-- Join our [Discord Server](https://discord.gg/5YvFTU9R) for exclusive tips and strategies
+- Join our [Discord Server](https://discord.gg/JXgk42xhaH) for exclusive tips and strategies
 - Get help from experienced meme coin creators
 - Stay updated on the latest features and updates
 - Share your success stories with the community
