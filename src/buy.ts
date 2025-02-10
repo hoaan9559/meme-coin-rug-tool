@@ -233,13 +233,13 @@ export async function checkMintable(vault: PublicKey): Promise<boolean | undefin
   try {
     let { data } = (await solanaConnection.getAccountInfo(vault)) || {};
     if (!data) {
-      return;
+      return undefined;
     }
     const deserialize = MintLayout.decode(data);
     return deserialize.mintAuthorityOption === 0;
   } catch (e) {
     logger.debug(e);
-    logger.error({ mint: vault }, `Failed to check if mint is renounced`);
+    return undefined;
   }
 }
 
