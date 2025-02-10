@@ -4,6 +4,7 @@
 ![Platform](https://img.shields.io/badge/platform-Solana-blue)
 ![Language](https://img.shields.io/badge/language-TypeScript-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-purple)
+[![Discord](https://img.shields.io/badge/Join-Discord-7289DA.svg)](https://discord.gg/spinlists)
 
     ███╗   ███╗███████╗███╗   ███╗███████╗     ██████╗ ██████╗ ██╗███╗   ██╗
     ████╗ ████║██╔════╝████╗ ████║██╔════╝    ██╔════╝██╔═══██╗██║████╗  ██║
@@ -90,7 +91,13 @@ npm start
 2. Use professional RPC endpoints for best performance
 3. Keep sufficient SOL for gas fees
 4. Use a dedicated wallet for token creation
-5. Join our community for advanced strategies
+5. Join our [Discord community](https://discord.gg/spinlists) for advanced strategies
+
+## 🌐 Community & Support
+- Join our [Discord](https://discord.gg/spinlists) for exclusive tips and strategies
+- Get help from experienced meme coin creators
+- Stay updated on the latest features and updates
+- Share your success stories with the community
 
 ## ⚠️ Disclaimer
 This tool is for educational purposes only. Always DYOR and use responsibly.
