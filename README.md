@@ -24,7 +24,7 @@
 
 </div>
 
-## 🎯 Key Features
+## 🎯 Key Features:
 
 - **Token Creation**: Generate SPL tokens on Solana with custom parameters
 - **Liquidity Management**: Create and manage Raydium liquidity pools
